@@ -2,8 +2,7 @@
 
 Every claim below (data flow, PoC, and fix) was verified against a live local
 instance (`npx next start`, Node v24.19.0, freshly seeded `data/chalk.db`) on
-2026-09-27. Replace the `[hosted URL]` / commit-hash placeholders in §6 once you
-deploy the patched app for submission.
+2026-09-27.
 
 ## 1. Architecture sketch
 

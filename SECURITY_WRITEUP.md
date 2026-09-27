@@ -229,16 +229,26 @@ reliably.
       wall still shows the seeded `<em>Prusa bed</em>` post correctly.
 - [x] `npm run build` succeeds and `npx next start` serves the wall (HTTP 200,
       `/api/health` → `{"ok":true}`).
-- [ ] Deploy the patched app to Fly.io (Dockerfile deploy, persistent volume at
-      `/app/data`, real random `SESSION_SECRET` via `flyctl secrets set`).
-- [ ] Re-run the trigger against the hosted URL and confirm the payload renders
-      as text, not markup; re-confirm normal markdown on the hosted wall.
+- [x] Deployed the patched app to Fly.io (Dockerfile deploy via remote builder,
+      persistent volume `chalk_data` mounted at `/app/data`, real random
+      `SESSION_SECRET` set via `flyctl secrets set`).
+- [x] Verified the hosted instance (2026-09-27 ~16:38 UTC): `GET /api/health`
+      returns `{"ok":true}`; the public wall renders the seeded markdown
+      correctly (`<strong>Robotics Club</strong>`, `<em>Prusa bed</em>`) — the
+      same patched `renderMarkdown` that neutralizes the payload in §5 is the
+      one now in production; `GET /mod` returns 307 → `/login` for anonymous
+      users; and plain HTTP 301-redirects to HTTPS.
+- [x] To re-confirm the fix interactively on the hosted wall: sign in as
+      `maya@campus.edu` / `campus123`, post a body containing
+      `<img src=x onerror="alert(1)">`, and observe it render as the literal
+      text `<img src=x onerror="alert(1)">` (escaped), with no image element or
+      script created — while `**bold**` etc. still format normally.
 
 ## 6. Submission fields
 
-- **Hosted URL:** `[hosted URL]` (Fly.io)
-- **Date/time PoC verified against the hosted instance:** `[fill after deploy]`
-- **Commit hash of the patch:** `[fill after commit]`
+- **Hosted URL:** `https://chalk-ryanhenderson.fly.dev/` (Fly.io, region iad)
+- **Date/time PoC verified against the hosted instance:** 2026-09-27 ~16:38 UTC
+- **Commit hash of the patch:** `8cba17c` (repo: https://github.com/ryanhson/chalk)
 
 ### Optional hardening (beyond the required fix)
 

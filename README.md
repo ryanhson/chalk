@@ -63,14 +63,3 @@ lib/markdown.js          Post formatting
 lib/seed.js              First-run demo data
 components/PostBody.js   Renders a formatted post
 ```
-
-## Assignment notes
-
-Host this somewhere your classmates and instructor can reach. Walk the running app until you can explain:
-
-- which code runs on the server vs in the browser
-- how a session cookie becomes `currentUser`
-- how a post body gets from the compose form onto the wall
-- what an officer can see that a member cannot
-
-Then look for a security defect in the running system, document how to trigger it, and patch it without breaking normal markdown on the wall. Submit the hosted URL, a short architecture sketch, the writeup, and the patched repo.

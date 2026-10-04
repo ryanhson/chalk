@@ -248,7 +248,7 @@ reliably.
 
 - **Hosted URL:** `https://chalk-ryanhenderson.fly.dev/` (Fly.io, region iad)
 - **Date/time PoC verified against the hosted instance:** 2026-09-27 ~16:38 UTC
-- **Commit hash of the patch:** `8cba17c` (repo: https://github.com/ryanhson/chalk)
+- **Commit hash of the patch:** `2b60643` (repo: https://github.com/ryanhson/chalk)
 
 ### Optional hardening (beyond the required fix)
 
